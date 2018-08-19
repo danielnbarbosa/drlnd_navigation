@@ -1,10 +1,12 @@
-Use [reinforcement learning](https://en.wikipedia.org/wiki/Reinforcement_learning) to train an agent inside a [Unity-ML](https://github.com/Unity-Technologies/ml-agents) environment.  In particular we will be working in an environment similar to the [Banana Collector](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector), however this will be a simplified version using a single agent, a smaller state space and a discrete action space.  This will make it an ideal candidate to leverage a Deep Q Network (DQN).
+This project is being done as part of the [Udacity Deep Reinforcement Learning Nanodegree](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893), a four month course that I am enrolled in.
 
-This project is being done as part of the [Udacity Deep Reinforcement Learning Nanodegree](Environment solved in 327 episodes!	Average Score: 13.06), a four month course that I am enrolled in.  
+We will use reinforcement learning to train an agent inside a [Unity-ML](https://github.com/Unity-Technologies/ml-agents) environment.  In particular we will be working in an environment similar to the [Banana Collector](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector), however this will be a simplified version using a single agent, a smaller state space and a discrete action space.  This will make it an ideal candidate to leverage a Deep Q Network (DQN).
 
-# Environment Description
+  
 
-A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.  The goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas.
+### Environment Description
+
+The environment is a open 3D space that the agent will need to navigate.  The goal is to collect as many good bananas as possible while avoiding bad ones.  A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.
 
 The state space has 37 dimensions and contains the agent's velocity, along with ray-based perception of objects around the agent's forward direction. Given this information, the agent has to learn how to best select actions. Four discrete actions are available, corresponding to:
 
@@ -16,19 +18,18 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 The task is episodic, and in order to solve the environment, the agent must get an average score of +13 over 100 consecutive episodes.
 
 
-# Installation
+### Installation
 
-## Pre-requisites
+#### Pre-requisites
 - [Anaconda](https://www.anaconda.com/download/)
 
 
-## Clone the repo
-Clone this repo using `https://github.com/danielnbarbosa/drlnd_navigation.git`
+#### Step 1: Clone the repo
+Clone this repo using `git clone https://github.com/danielnbarbosa/drlnd_navigation.git`
 
 
-## Install Dependencies
-
-Assuming you've installed Anaconda you can now create an anaconda environment that contains all the required dependencies to run the project.
+#### Step 2: Install Dependencies
+Create an anaconda environment that contains all the required dependencies to run the project.
 
 Mac:
 ```
@@ -47,6 +48,7 @@ conda install -y pytorch -c pytorch
 pip install torchsummary unityagents
 ```
 
+#### Step 3: Download Banana environment
 You will also need to install the pre-built Unity environment, you will NOT need to install Unity itself.  Select the appropriate file for your operating system:
 
 - Linux: click [here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
@@ -57,10 +59,12 @@ You will also need to install the pre-built Unity environment, you will NOT need
 Place the file in the top level directory of the repo and unzip the file.
 
 
-# Train the agent
+### Train your agent
 
-To train the agent run `python bananas.py`.  This will fire up the Unity environment and output live training statistics.  When training is finished you'll have a saved model and see some graphs that help visualize the agent's learning progress.  It should take the agent around 150 - 250 episodes to solve the environment.
+To train the agent run `python bananas.py`.  This will fire up the Unity environment and output live training statistics to the command line.  When training is finished you'll have a saved model in `checkpoints/solved.pth` and see some graphs that help visualize the agent's learning progress.  It should take the agent around 150 - 250 episodes to solve the environment.
 
 To watch your trained agent interact with the environment run `python bananas.py --render`.  This will load the saved weights from a checkpoint file.
 
 Mac users will need to use `pythonw` instead of `python` due to matplotlib requiring a framework build of python.  More details [here](https://matplotlib.org/faq/osx_framework.html).
+
+Feel to experiment with modifying the hyperparameters to see how it affects training.
