@@ -6,11 +6,13 @@ Here's what the agent looks like after training:
 ![trained agent](trained_agent.gif)
 
 #### Algorithm
-This agent implements the Deep Q Network (DQN) algorithm.  DQN combines off-policy training and bootstrapping from traditional Q-learning with function approximation using neural networks.  This makes if very effective at learning even in high high dimensional continuous state spaces.  However this combination, referred to as the "Deadly Triad" by Richard Sutton, is known to have divergence issues where the agent does not converge on a policy but instead oscillates all over the place.  To mitigate this, DQN also employs a couple modifications including Experience Replay and Fixed Q-targets.  Experience replay is a finite memory buffer of past experiences that the agent can sample from during learning.  Fixed-Q targets use a second neural network with weights that do not change as quickly as the online network. which is used when calculating the TD target.   Both of these help stabilize converge but do not guarantee it.  More details are available in the original DQN [paper](https://deepmind.com/research/dqn/).
+This agent implements the Deep Q Network (DQN) algorithm.  DQN combines off-policy training and bootstrapping from traditional Q-learning with function approximation using neural networks.  This makes if very effective at learning even in high dimensional continuous state spaces.  However this combination, referred to as the "Deadly Triad" by Richard Sutton, is known to have divergence issues where the agent does not converge on a policy but instead oscillates all over the place.
+
+To mitigate this, DQN also employs a couple modifications including Experience Replay and Fixed Q-targets.  Experience replay is a finite memory buffer of past experiences that the agent can sample from during learning.  Fixed-Q targets use a second neural network with weights that do not change as quickly as the online network and is used when calculating the TD target.   Both of these help stabilize converge but do not guarantee it.  More details are available in the original DQN [paper](https://deepmind.com/research/dqn/).
 
 
 #### DQN enhancements
-Since the original DQN algorithm first came out several enhancements have been proposed.  A couple of those enhancements have been tried here including [Double DQN](https://arxiv.org/abs/1509.06461) and [Dueling networks](https://arxiv.org/abs/1511.06581).
+Since the DQN algorithm first came out several enhancements have been proposed.  A couple of those enhancements have been tried here including [Double DQN](https://arxiv.org/abs/1509.06461) and [Dueling networks](https://arxiv.org/abs/1511.06581).
 
 Double DQN leverages both the online network and the target network when calculating the predicted Q values in an effort to reduce overoptimistic estimations.
 Dueling networks separate estimation of the state value from the state dependent action advantage to better determine state value without having to explore all the associated actions.
@@ -28,11 +30,11 @@ Surprisingly it is clear that vanilla DQN, without any of the enhancements, is t
 
 
 #### Neural network model
-The neural network model maps the state (input) to actions (output).  It consists of a two fully connected hidden layers, each with 32 nodes and using relu activation.  Networks with one, two and three hidden layers were all tested and two was found to work best.  In addition the number of nodes in the hidden layers was tried with 16, 32 and 64, and 32 was found to work best.
+The neural network model maps the state (input) to actions (output).  It consists of a two fully connected hidden layers, each with 32 nodes and using relu activation.  Networks with one, two and three hidden layers were all tested and two was found to work best.  The number of nodes in the hidden layers was tried with 16, 32 and 64, and 32 was found to work best.
 
 
-#### Other hyperparameters
-In addition to the DQN algorithm and the neural network model, tweaking epsilon was the other hyperparameter that was found to improve learning speed.  An aggressive epsilon decay rate of 0.97 and a lower bound on epsilon of 0.001 both helped decrease the time needed to solve the environment.
+#### Epsilon
+Tweaking epsilon was the other hyperparameter that was found to improve learning speed.  An aggressive epsilon decay rate of 0.97 and a lower bound on epsilon of 0.001 both helped decrease the time needed to solve the environment.
 
 
 #### Metrics
