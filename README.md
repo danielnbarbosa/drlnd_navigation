@@ -1,3 +1,6 @@
+### Introduction
+![bananas](results/bananas.png)
+
 This project is being done as part of the [Udacity Deep Reinforcement Learning Nanodegree](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893), a four month course that I am enrolled in.
 
 We will use reinforcement learning to train an agent inside a [Unity-ML](https://github.com/Unity-Technologies/ml-agents) environment.  In particular we will be working in an environment similar to the [Banana Collector](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector), however this will be a simplified version using a single agent, a smaller state space and a discrete action space.  This will make it an ideal candidate to leverage a Deep Q Network (DQN).
@@ -5,8 +8,7 @@ We will use reinforcement learning to train an agent inside a [Unity-ML](https:/
 
 
 ### Environment Description
-
-The environment is a open 3D space that the agent will need to navigate.  The goal is to collect as many good bananas as possible while avoiding bad ones.  A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.
+The environment is a open 3D space that the agent will need to navigate.  The goal is to collect as many good (yellow) bananas as possible while avoiding bad (blue) ones.  A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.
 
 The state space has 37 dimensions and contains the agent's velocity, along with ray-based perception of objects around the agent's forward direction. Given this information, the agent has to learn how to best select actions. Four discrete actions are available, corresponding to:
 
@@ -21,11 +23,11 @@ The task is episodic, and in order to solve the environment, the agent must get 
 ### Installation
 
 #### Pre-requisites
-- [Anaconda](https://www.anaconda.com/download/)
+- Make sure you having a working version of [Anaconda](https://www.anaconda.com/download/) on your system.
 
 
 #### Step 1: Clone the repo
-Clone this repo using `git clone https://github.com/danielnbarbosa/drlnd_navigation.git`
+Clone this repo using `git clone https://github.com/danielnbarbosa/drlnd_navigation.git`.
 
 
 #### Step 2: Install Dependencies
@@ -56,15 +58,17 @@ You will also need to install the pre-built Unity environment, you will NOT need
 - Windows (32-bit): click [here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86.zip)
 - Windows (64-bit): click [here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip)
 
-Place the file in the top level directory of the repo and unzip the file.
+Download the file into the top level directory of this repo and unzip it.
 
 
 ### Train your agent
-
 To train the agent run `python bananas.py`.  This will fire up the Unity environment and output live training statistics to the command line.  When training is finished you'll have a saved model in `checkpoints/solved.pth` and see some graphs that help visualize the agent's learning progress.  It should take the agent around 150 - 250 episodes to solve the environment.
 
-To watch your trained agent interact with the environment run `python bananas.py --render`.  This will load the saved weights from a checkpoint file.
+To watch your trained agent interact with the environment run `python bananas.py --render`.  This will load the saved weights from a checkpoint file.  A previously trained model is included in this repo.
 
-Mac users will need to execute python using `pythonw` instead of `python` due to matplotlib requiring a framework build of python.  More details [here](https://matplotlib.org/faq/osx_framework.html).
+Mac users may need to execute python using `pythonw` instead of `python` due to matplotlib requiring a framework build of python.  More details [here](https://matplotlib.org/faq/osx_framework.html).
 
-Feel to experiment with modifying the hyperparameters to see how it affects training.  See the [report](results/Report.md) for more insight on how I arrived at the current hyperparameters.  
+Feel to experiment with modifying the hyperparameters to see how it affects training.
+
+### Report
+See the [report](results/Report.md) for more insight on how I arrived at the current hyperparameters.  
