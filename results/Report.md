@@ -1,5 +1,10 @@
 This details the methodology used in evaluating and improving agent learning performance.
 
+#### Agent
+Here's what the agent looks like after training:
+
+![trained agent](trained_agent.gif)
+
 
 #### DQN modifications
 Since the original [DQN](https://deepmind.com/research/dqn/) algorithm first came out several enhancements have been proposed.  A couple of those enhancements have been tried here including [Double DQN](https://arxiv.org/abs/1509.06461) and [Dueling networks](https://arxiv.org/abs/1511.06581).
@@ -16,7 +21,7 @@ All four combinations were tested, each using three different seeds and results 
 | Dueling Network  | 247.6  | 290         |
 
 
-Surprisingly it is clear that vanilla DQN, without any of the enhancements, is the best algorithm for this environment.  This maybe due to the fact that Double DQN and Dueling Networks had the lest impact amongst a variety of enhancments that were brought together in the [Rainbow DQN](https://arxiv.org/abs/1710.02298).
+Surprisingly it is clear that vanilla DQN, without any of the enhancements, is the best algorithm for this environment.  This maybe due to the fact that Double DQN and Dueling Networks had the lest impact amongst a variety of enhancements that were brought together in the [Rainbow DQN](https://arxiv.org/abs/1710.02298).
 
 
 #### Neural network model
@@ -27,7 +32,7 @@ As we are dealing with a high dimensional continuous state space, tabular Q lear
 In addition to the DQN algorithm and the neural network model, tweaking epsilon was the other hyperparameter that was found to improve learning speed.  An aggressive epsilon decay rate of 0.97 and a lower bound on epsilon of 0.001 both helped.
 
 
-#### Learning statistics
+#### Metrics
 See the graphs below for an example of a typical training run.  There are three pairs of graphs for reward, loss and entropy.
 
 - The score (reward) can be seen to be consistently increasing over time.  This is the best indication that the agent is learning.

@@ -2,7 +2,7 @@ This project is being done as part of the [Udacity Deep Reinforcement Learning N
 
 We will use reinforcement learning to train an agent inside a [Unity-ML](https://github.com/Unity-Technologies/ml-agents) environment.  In particular we will be working in an environment similar to the [Banana Collector](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector), however this will be a simplified version using a single agent, a smaller state space and a discrete action space.  This will make it an ideal candidate to leverage a Deep Q Network (DQN).
 
-  
+
 
 ### Environment Description
 
@@ -33,8 +33,8 @@ Create an anaconda environment that contains all the required dependencies to ru
 
 Mac:
 ```
-conda create --name rl_unity python=3.6
-source activate rl_unity
+conda create --name drlnd_navigation python=3.6
+source activate drlnd_navigation
 conda install -y python.app
 conda install -y pytorch -c pytorch
 pip install torchsummary unityagents
@@ -42,8 +42,8 @@ pip install torchsummary unityagents
 
 Windows:
 ```
-conda create --name rl_unity python=3.6
-activate rl_unity
+conda create --name drlnd_navigation python=3.6
+activate drlnd_navigation
 conda install -y pytorch -c pytorch
 pip install torchsummary unityagents
 ```
@@ -65,6 +65,6 @@ To train the agent run `python bananas.py`.  This will fire up the Unity environ
 
 To watch your trained agent interact with the environment run `python bananas.py --render`.  This will load the saved weights from a checkpoint file.
 
-Mac users will need to use `pythonw` instead of `python` due to matplotlib requiring a framework build of python.  More details [here](https://matplotlib.org/faq/osx_framework.html).
+Mac users will need to execute python using `pythonw` instead of `python` due to matplotlib requiring a framework build of python.  More details [here](https://matplotlib.org/faq/osx_framework.html).
 
-Feel to experiment with modifying the hyperparameters to see how it affects training.
+Feel to experiment with modifying the hyperparameters to see how it affects training.  See the [report](results/Report.md) for more insight on how I arrived at the current hyperparameters.  
