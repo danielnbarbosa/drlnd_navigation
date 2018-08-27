@@ -17,7 +17,7 @@ Since the DQN algorithm first came out several enhancements have been proposed. 
 Double DQN leverages both the online network and the target network when calculating the predicted Q values in an effort to reduce overoptimistic estimations.
 Dueling networks separate estimation of the state value from the state dependent action advantage to better determine state value without having to explore all the associated actions.
 
-All four combinations were [tested](detailed_results.md) and results are shown below.  The results are the average number of episodes required to solve the environment over three different seeds.  The criteria for solving is considered to be an average score of +13 over 100 consecutive episodes.
+All four combinations were [tested](Results_Details.md) and results are shown below.  The results are the average number of episodes required to solve the environment over three different seeds.  The criteria for solving is considered to be an average score of +13 over 100 consecutive episodes.
 
 
 |                  | DQN    |  Double DQN |
