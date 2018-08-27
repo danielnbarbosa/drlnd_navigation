@@ -1,3 +1,7 @@
+"""
+Wrapper to define the hyperparameters used by an agent in an environment.
+"""
+
 import random
 import argparse
 from unityagents import UnityEnvironment
@@ -20,5 +24,6 @@ agent = Agent(state_size=37, action_size=4, fc1_units=32, fc2_units=32, seed=0)
 if args.render:
     watch(env, agent, brain_name=brain_name)
 else:
-    train(env, agent, brain_name=brain_name, n_episodes=1000, eps_start=1.0, eps_end=0.001, eps_decay=0.97, solve_score=13.0)
+    train(env, agent, brain_name=brain_name, n_episodes=1000,
+          eps_start=1.0, eps_end=0.001, eps_decay=0.97, solve_score=13.0)
 env.close()

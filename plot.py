@@ -1,3 +1,7 @@
+"""
+Utility functions to help in plotting various agent metrics.
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 

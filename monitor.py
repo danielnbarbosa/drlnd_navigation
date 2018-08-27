@@ -1,3 +1,7 @@
+"""
+Functions to execute training and visualize agent.
+"""
+
 import time
 from collections import deque
 import numpy as np
@@ -23,7 +27,8 @@ def env_step(env, brain_name, action):
     return state, reward, done
 
 
-def train(env, agent, brain_name=None, n_episodes=2000, max_t=1000, eps_start=1.0, eps_end=0.01, eps_decay=0.995, solve_score=10000.0):
+def train(env, agent, brain_name=None, n_episodes=2000, max_t=1000,
+          eps_start=1.0, eps_end=0.01, eps_decay=0.995, solve_score=10000.0):
     """ Run training loop.
 
     Params
@@ -75,16 +80,21 @@ def train(env, agent, brain_name=None, n_episodes=2000, max_t=1000, eps_start=1.
             best_avg_score = avg_score
 
         # print stats
-        print('\rEpisode {:6}\tAvg: {:.2f}\tBest: {:.2f}\tEps: {:.4f}\tBufferLen: {:6}'.format(i_episode, avg_score, best_avg_score, eps, buffer_len), end="")
+        print('\rEpisode {:6}\tAvg: {:.2f}\tBest: {:.2f}'
+              '\tEps: {:.4f}\tBufferLen: {:6}'
+              .format(i_episode, avg_score, best_avg_score, eps, buffer_len), end="")
         if i_episode % 100 == 0:
             # calculate wall time for last 100 episodes
             n_secs = int(time.time() - time_start)
-            print('\rEpisode {:6}\tAvg: {:.2f}\tBest: {:.2f}\tEps: {:.4f}\tBufferLen: {:6}\tSteps: {:7}\tSecs: {:4}'.format(i_episode, avg_score, best_avg_score, eps, buffer_len, total_steps, n_secs))
+            print('\rEpisode {:6}\tAvg: {:.2f}\tBest: {:.2f}'
+                  '\tEps: {:.4f}\tBufferLen: {:6}\tSteps: {:7}\tSecs: {:4}'
+                  .format(i_episode, avg_score, best_avg_score, eps, buffer_len, total_steps, n_secs))
             # reset counters
             time_start = time.time()
             total_steps = 0
         if avg_score >= solve_score:
-            print('\nEnvironment solved in {:d} episodes!\tAverage Score: {:.2f}'.format(i_episode-100, avg_score))
+            print('\nEnvironment solved in {:d} episodes!\tAverage Score: {:.2f}'
+                  .format(i_episode-100, avg_score))
             torch.save(agent.qnetwork_local.state_dict(), 'checkpoints/solved.pth')
             break
     plot(scores, avg_scores, agent.loss_list, agent.entropy_list)
@@ -99,7 +109,7 @@ def watch(env, agent, brain_name):
     state = initialize_env(env, brain_name)
     # interact with environment
     for _ in range(600):
-        # slect an action
+        # slect an action using a greedy policy
         action = agent.act(state)
         # add a slight delay otherwise renders too fast to watch
         time.sleep(0.03)

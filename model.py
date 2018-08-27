@@ -1,3 +1,7 @@
+"""
+Classes to represent neural network architectures available to the agent.
+"""
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -11,6 +15,8 @@ class QNetwork(nn.Module):
         ======
             state_size (int): Dimension of each state
             action_size (int): Dimension of each action
+            fc1_units (int): number of nodes in first hidden layer
+            fc2_units (int): number of nodes in second hidden layer
             seed (int): Random seed
         """
         super(QNetwork, self).__init__()
@@ -37,6 +43,8 @@ class DuelingQNetwork(nn.Module):
         ======
             state_size (int): Dimension of each state
             action_size (int): Dimension of each action
+            fc1_units (int): number of nodes in first hidden layer
+            fc2_units (int): number of nodes in second hidden layer
             seed (int): Random seed
         """
         super(DuelingQNetwork, self).__init__()
@@ -49,6 +57,7 @@ class DuelingQNetwork(nn.Module):
 
     def forward(self, state):
         """Build a network that maps state -> action values."""
+
         s = F.relu(self.fc_s(state))            # shared
         v = self.out_v(F.relu(self.fc_v(s)))    # state
         a = self.out_a(F.relu(self.fc_a(s)))    # advantage

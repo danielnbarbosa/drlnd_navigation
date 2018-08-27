@@ -1,6 +1,10 @@
-import numpy as np
+"""
+Classes to model the reinforcment learning agent.
+"""
+
 import random
 from collections import namedtuple, deque
+import numpy as np
 import torch
 import torch.nn.functional as F
 import torch.optim as optim
@@ -27,6 +31,8 @@ class Agent():
         ======
             state_size (int): dimension of each state
             action_size (int): dimension of each action
+            fc1_units (int): number of nodes in first hidden layer
+            fc2_units (int): number of nodes in second hidden layer
             seed (int): random seed
         """
         self.state_size = state_size
