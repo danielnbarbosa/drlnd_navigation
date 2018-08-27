@@ -3,7 +3,7 @@ This details the methodology used in evaluating and improving agent learning per
 #### Agent
 Here's what the agent looks like after training:
 
-![trained agent](trained_agent.gif)
+![trained agent](assets/trained_agent.gif)
 
 #### Algorithm
 This agent implements the Deep Q Network (DQN) algorithm.  DQN combines off-policy training and bootstrapping from traditional Q-learning with function approximation using neural networks.  This makes if very effective at learning even in high dimensional continuous state spaces.  However this combination, referred to as the "Deadly Triad" by Richard Sutton, is known to have divergence issues where the agent does not converge on a policy but instead oscillates all over the place.
@@ -17,7 +17,7 @@ Since the DQN algorithm first came out several enhancements have been proposed. 
 Double DQN leverages both the online network and the target network when calculating the predicted Q values in an effort to reduce overoptimistic estimations.
 Dueling networks separate estimation of the state value from the state dependent action advantage to better determine state value without having to explore all the associated actions.
 
-All four combinations were tested and results are shown below.  The results are the average number of episodes required to solve the environment over three different seeds.  The criteria for solving is considered to be an average score of +13 over 100 consecutive episodes.
+All four combinations were ![tested](detailed_results.md) and results are shown below.  The results are the average number of episodes required to solve the environment over three different seeds.  The criteria for solving is considered to be an average score of +13 over 100 consecutive episodes.
 
 
 |                  | DQN    |  Double DQN |
@@ -46,7 +46,7 @@ See the graphs below for an example of a typical training run.  There are three 
 
 Results vary depending on the seed but typically the agent is able to solve the environment in 150 - 250 episodes.
 
-![results](results.png)
+![results](assets/results.png)
 
 
 #### Future enhancements
