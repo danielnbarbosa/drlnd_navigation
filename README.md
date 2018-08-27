@@ -72,4 +72,4 @@ Mac users may need to execute python using `pythonw` instead of `python` due to 
 Feel to experiment with modifying the hyperparameters to see how it affects training.
 
 ## Report
-See the [report](results/Report.md) for more insight on how I arrived at the current hyperparameters.  
+See the [report](Report.md) for more insight on how I arrived at the current hyperparameters.  
