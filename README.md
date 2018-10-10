@@ -27,7 +27,7 @@ Here's an example of a single observation of the environment:
 - Make sure you having a working version of [Anaconda](https://www.anaconda.com/download/) on your system.
 
 
-### Step 1: Clone the repo
+#### Step 1: Clone the repo
 Clone this repo using `git clone https://github.com/danielnbarbosa/drlnd_navigation.git`.
 
 
