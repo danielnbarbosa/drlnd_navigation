@@ -1,9 +1,5 @@
 This details the methodology used in evaluating and improving agent learning performance.
 
-#### Agent
-Here's what the agent looks like after training:
-
-![trained agent](assets/trained_agent.gif)
 
 #### Algorithm
 This agent implements the Deep Q Network (DQN) algorithm.  DQN combines off-policy training and bootstrapping from traditional Q-learning with function approximation using neural networks.  This makes if very effective at learning even in high dimensional continuous state spaces.  However this combination, referred to as the "Deadly Triad" by Richard Sutton, is known to have divergence issues where the agent does not converge on a policy but instead oscillates all over the place.

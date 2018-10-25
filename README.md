@@ -1,12 +1,11 @@
+![trained agent](assets/trained_agent.gif)
+
 ## Introduction
-This project is being done as part of the [Udacity Deep Reinforcement Learning Nanodegree](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893), a four month course that I am enrolled in.
-
-We will use reinforcement learning to train an agent inside a [Unity-ML](https://github.com/Unity-Technologies/ml-agents) environment.  We will be working in an environment similar to the [Banana Collector](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector), however this will be a simplified version using a single agent, a smaller state space and a discrete action space.  This will make it an ideal candidate to leverage a Deep Q Network (DQN).
-
+This project uses a Deep Q Network (DQN) to train an agent to navigate a 3D environment, specifically a variant of the [Banana Collector](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector) environment.  This project is being done as part of the [Udacity Deep Reinforcement Learning Nanodegree](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893), a four month course that I am taking.
 
 
 ## Environment Description
-The environment is a open 3D space that the agent will need to navigate.  The goal is to collect as many good (yellow) bananas as possible while avoiding bad (blue) ones.  A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.
+This environment is a simplified version of the [ML Agents](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector) example one.  It has a single agent, a smaller state space and a discrete action space.  The environment is a open 3D space that the agent will need to navigate.  The goal is to collect as many good (yellow) bananas as possible while avoiding bad (blue) ones.  A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.
 
 The state space has 37 dimensions and contains the agent's velocity, along with ray-based perception of objects around the agent's forward direction. Given this information, the agent has to learn how to best select actions. Four discrete actions are available, corresponding to:
 
@@ -16,10 +15,6 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 - 3 - turn right.
 
 The task is episodic, and in order to solve the environment, the agent must get an average score of +13 over 100 consecutive episodes.
-
-Here's an example of a single observation of the environment:
-![bananas](assets/bananas.png)
-
 
 ## Installation
 
